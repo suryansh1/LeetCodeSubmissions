@@ -11,7 +11,8 @@ class Solution:
             rev *= 10
             rev += num %10
             
-            num = floor(num/10)
+            # num = floor(num/10)
+            num//=10
             # print (rev, num)
 
         
