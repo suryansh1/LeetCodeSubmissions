@@ -1,19 +1,41 @@
-from math import floor
 class Solution:
+
+    def isPalindrome_extraSpace(self, x: int) -> bool:
+
+        digits = []
+
+        while x :
+
+            digits.append(x%10)
+
+            x = x//10
+
+            # print(digits)
+
+        return digits == digits[::-1]
+
+    def isPalindrome_reverse(self, x: int) -> bool:
+
+        temp = x
+
+        reverse = 0
+
+        while temp:
+
+            reverse *=10
+            reverse += temp%10
+
+            temp //=10
+        
+        return x == reverse
+
     def isPalindrome(self, x: int) -> bool:
         
         if x < 0 : return False
 
-        num = x
-        rev = 0
-        
-        while num:
-            rev *= 10
-            rev += num %10
-            
-            # num = floor(num/10)
-            num//=10
-            # print (rev, num)
+        return str(x) == str(x)[::-1]
 
-        
-        return rev == x
+        # return self.isPalindrome_reverse(x)
+
+        # return self.isPalindrome_extraSpace(x)
+
