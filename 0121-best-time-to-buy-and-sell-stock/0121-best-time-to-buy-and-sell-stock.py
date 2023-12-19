@@ -1,16 +1,23 @@
 class Solution:
     def maxProfit(self, prices: List[int]) -> int:
         
-        max_profit = 0
+        profit = 0
         
-        min_price = sys.maxsize
+        # Brute force approach
         
-        for price in prices : 
+        # For each index i
+        # Calculate profit from n-i future days and store max 
+        
+        lowest_buy_price = sys.maxsize
+        
+        
+        for i, buy_price in enumerate(prices) : 
             
-            if price < min_price : 
-                min_price = price
+            if buy_price < lowest_buy_price:  lowest_buy_price = buy_price
+            
+            if prices[i] - lowest_buy_price > profit : 
                 
-            if price - min_price > max_profit : 
-                max_profit = price - min_price
+                profit = prices[i] - lowest_buy_price
                     
-        return max_profit
+                    
+        return profit
