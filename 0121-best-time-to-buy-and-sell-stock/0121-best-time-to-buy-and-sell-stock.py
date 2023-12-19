@@ -5,7 +5,7 @@ class Solution:
         
         min_price = sys.maxsize
         
-        for i, price in enumerate(prices) : 
+        for price in prices : 
             
             if price < min_price : 
                 min_price = price
