@@ -9,10 +9,10 @@ class Solution:
 
         magazineCounter = Counter(magazine)
 
-        for pair in ransomNoteCounter :
+        for char, count in ransomNoteCounter.items() :
 
-            if pair[0] not in magazineCounter : return False
+            if char not in magazineCounter : return False
 
-            if magazineCounter[pair[0]] < ransomNoteCounter[pair[0]] : return False
+            if magazineCounter[char] < ransomNoteCounter[char] : return False
 
         return True
