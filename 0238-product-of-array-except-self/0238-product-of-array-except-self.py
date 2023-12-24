@@ -1,6 +1,8 @@
 class Solution:
-    def productExceptSelf(self, nums: List[int]) -> List[int]:
-        
+
+    def productExceptSelfExponent(self, nums: List[int]) -> List[int]:
+
+
         zeros_index = []
         non_zeros_index = []
 
@@ -35,5 +37,26 @@ class Solution:
 
         return return_list
 
-        
+    def productExceptSelfPrefixSuffix(self, nums: List[int]) -> List[int]:
 
+        prefix, suffix, answer = [1]*len(nums), [1]*len(nums), [1]*len(nums)
+
+        for i in range(1, len(nums)):
+            prefix[i] = prefix[i-1] * nums[i-1]
+
+        for j in range(len(nums) - 2, -1, -1):
+            suffix[j] = suffix[j+1] * nums[j+1]
+
+        # print(prefix, suffix)
+        for i, num in enumerate(nums):
+            answer[i] = prefix[i] * suffix[i]
+
+        return answer
+
+
+
+
+    def productExceptSelf(self, nums: List[int]) -> List[int]:
+        
+        # return self.productExceptSelfExponent(nums)
+        return self.productExceptSelfPrefixSuffix(nums)
