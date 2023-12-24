@@ -6,7 +6,10 @@ class Solution:
         counter = Counter(s)
 
         # Construct palindrome with largest odd letters in the middle and 
-        # even letters on each side
+        # even letters on each side. 
+
+        # For each letter with odd counts, use all but 1 of that letter
+        # to make it an even count and add to palindrome length
 
         answer = 0
         odd_vals = []
@@ -20,7 +23,7 @@ class Solution:
             else : 
                 answer += val
         
-        if odd_vals == [] : return answer
+        # if odd_vals == [] : return answer
 
-        return answer + sum(odd_vals) - len(odd_vals) + 1
+        return answer + sum(odd_vals) - len(odd_vals) + int(odd_vals != [])
                 
