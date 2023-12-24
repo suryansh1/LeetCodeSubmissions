@@ -40,7 +40,7 @@ class Solution:
         answer = 0
         odd_flag = False
 
-        for key, val in counter.items():
+        for val in counter.values():
             
             if val % 2 == 1 :
                 odd_flag = True
