@@ -9,7 +9,7 @@ class Solution:
         return counter.most_common(1)[0][0]
 
 
-    def majorityElementBeyerMoore(self, nums: List[int]) -> int:
+    def majorityElementBoyerMoore(self, nums: List[int]) -> int:
 
         candidate = nums[0]
 
@@ -34,4 +34,4 @@ class Solution:
         
         # return self.majorityElementHashMap(nums)
 
-        return self.majorityElementBeyerMoore(nums)
+        return self.majorityElementBoyerMoore(nums)
