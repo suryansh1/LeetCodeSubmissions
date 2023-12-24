@@ -9,7 +9,7 @@ class Solution:
 
         magazineCounter = Counter(magazine)
 
-        for char, count in ransomNoteCounter.items() :
+        for char in ransomNoteCounter.keys() :
 
             if char not in magazineCounter : return False
 
