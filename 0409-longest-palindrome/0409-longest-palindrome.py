@@ -38,16 +38,16 @@ class Solution:
         # to make it an even count and add to palindrome length
 
         answer = 0
-        odd_counts = 0
+        odd_flag = False
 
         for key, val in counter.items():
             
             if val % 2 == 1 :
-                odd_counts += 1
+                odd_flag = True
                 answer += val - 1
 
             else : 
                 answer += val
         
-        return answer + int(odd_counts > 0)
+        return answer + int(odd_flag)
                 
