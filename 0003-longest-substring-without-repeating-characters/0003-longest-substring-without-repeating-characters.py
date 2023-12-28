@@ -1,6 +1,6 @@
 class Solution:
     
-    def lengthOfLongestSubstring(self, s: str) -> int:
+    def lengthOfLongestSubstringSet(self, s: str) -> int:
 
         if s == "" : return 0
 
@@ -35,5 +35,34 @@ class Solution:
                 left += 1
 
         return max_length
+
+    def lengthOfLongestSubstringDict(self, s: str) -> int:
+
+        if s == "" : return 0
+
+        max_length = 0
+
+        left, right = 0, 0
+
+        # Dict to store index of left
+        myDict = {}
+
+
+        for right in range(len(s)):
+
+            if s[right] in myDict :
+                 
+                left = max(myDict[s[right]], left)
+                
+
+            max_length = max(max_length, right - left + 1)
+            
+            myDict[s[right]] = right + 1
+            
+        return max_length
+        
+    def lengthOfLongestSubstring(self, s: str) -> int:
+
+        return self.lengthOfLongestSubstringDict(s)
 
         
