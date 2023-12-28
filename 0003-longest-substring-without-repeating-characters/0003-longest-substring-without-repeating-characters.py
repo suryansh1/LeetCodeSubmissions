@@ -20,10 +20,11 @@ class Solution:
             if s[right] not in substring :
                  
                 substring.add(s[right])
-                if right - left + 1 > max_length : max_length = right - left + 1
+                max_length = max(max_length, right - left + 1)
 
             # If new character is present in substring
-            # 
+            # remove leftmost character and shorten substring
+            # until we have an all unique substring including right
             else :
 
                 while s[left] != s[right] : 
