@@ -6,7 +6,8 @@ from collections import deque
 #         self.val = val
 #         self.next = next
 class Solution:
-    def reverseList(self, head: Optional[ListNode]) -> Optional[ListNode]:
+
+    def reverseListStack(self, head: Optional[ListNode]) -> Optional[ListNode]:
         
         if head is None or head.next is None : return head
 
@@ -30,5 +31,35 @@ class Solution:
             temp = stack.pop()
 
         temp.next = None
-        
+
         return retHead
+
+
+    def reverseListPreCurNext(self, head: Optional[ListNode]) -> Optional[ListNode]:
+
+        if head is None or head.next is None : return head
+
+        pre = None
+        cur = head
+        next = head.next
+
+        while cur.next :
+
+            cur.next = pre
+            pre = cur
+            cur = next            
+            next = next.next 
+
+        cur.next = pre
+        return cur
+
+
+
+
+
+
+    def reverseList(self, head: Optional[ListNode]) -> Optional[ListNode]:
+        
+        # return self.reverseListStack(head)
+
+        return self.reverseListPreCurNext(head)
