@@ -31,7 +31,7 @@ class Solution:
 
                         answer[key] = [nums[i], nums[j], nums[k]]
    
-        return answer.keys()
+        return answer.values()
 
     def threeSum2pointersSet(self, nums: List[int]) -> List[List[int]]:
 
