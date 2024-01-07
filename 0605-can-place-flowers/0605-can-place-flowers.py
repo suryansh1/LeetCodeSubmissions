@@ -18,7 +18,9 @@ class Solution:
 
             if flowers_left == 0 : return True
 
-        for i in range(1, len(flowerbed)-1):
+        i = 0
+        # for i in range(1, len(flowerbed)-1):
+        while (i < len(flowerbed) - 1):
 
             if flowerbed[i] == 0 :
 
@@ -28,6 +30,11 @@ class Solution:
                     flowers_left -= 1
 
                     if flowers_left == 0 : return True
+
+                    i += 2
+                    continue
+
+            i+=1
 
         return flowers_left == 0
             
