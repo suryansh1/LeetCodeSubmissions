@@ -1,39 +1,18 @@
 class Solution:
     def removeDuplicates(self, nums: List[int]) -> int:
         
-        ####### EXTRA SPACE #####
-        result = []
-        for i, val in enumerate(nums):
+        mySet = {}
 
-            if result == [] :
-                result.append(val)
-                continue
+        for num in nums :
 
-            if val > result[-1] : 
-                result.append(val)
+            if num not in mySet: mySet[num] = 1
 
-        for i, val in enumerate(result):
+        i = 0
+
+        for val in mySet:
+
             nums[i] = val
 
-        return len(result)
+            i+=1
 
-        ##### TWO POINTERS #####
-
-#         ptr1, ptr2 = 0, 1
-
-#         size = len(nums)
-        
-#         while(ptr2 < size):
-
-#             while nums[ptr2] == nums[ptr1]:
-#                 ptr2 +=1
-                
-#                 if ptr2 >= size : return ptr1 + 1
-
-#             ptr1 += 1
-
-#             nums[ptr1] = nums[ptr2]
-
-#             ptr2 += 1
-
-#         return ptr1 + 1
+        return len(mySet)
