@@ -9,8 +9,8 @@ class Solution:
 
         if head is None : return False
 
-        slow = head
-        fast = head.next
+        slow = fast = head 
+        # fast = head.next
 
         while fast and fast.next :
 
