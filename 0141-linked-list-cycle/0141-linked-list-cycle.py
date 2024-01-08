@@ -5,10 +5,8 @@
 #         self.next = None
 
 class Solution:
-    def hasCycle(self, head: Optional[ListNode]) -> bool:
-
-
-        return self.detectCycleDict(head)
+    
+    def hasCycleFLoydWarshal(self, head: Optional [ListNode]) -> bool :
 
         if head is None : return False
 
@@ -25,7 +23,7 @@ class Solution:
 
         return False
 
-    def detectCycleDict(self, head: Optional[ListNode]) -> bool:
+    def hasCycleDict(self, head: Optional[ListNode]) -> bool:
 
         if head is None : return False
 
@@ -43,3 +41,11 @@ class Solution:
 
         return False
         
+    def hasCycle(self, head: Optional[ListNode]) -> bool:
+
+        # return self.hasCycleDict(head)
+
+        return self.hasCycleFLoydWarshal(head)
+
+        
+    
