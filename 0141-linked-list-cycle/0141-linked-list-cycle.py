@@ -9,7 +9,8 @@ class Solution:
 
         if head is None : return False
 
-        slow = fast = head
+        slow = head
+        fast = head.next
 
         while slow and fast and fast.next :
 
