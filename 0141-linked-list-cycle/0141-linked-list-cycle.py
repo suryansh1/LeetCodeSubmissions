@@ -7,6 +7,9 @@
 class Solution:
     def hasCycle(self, head: Optional[ListNode]) -> bool:
 
+
+        return self.detectCycleDict(head)
+
         if head is None : return False
 
         slow = fast = head 
@@ -19,6 +22,24 @@ class Solution:
             fast = fast.next.next
 
             if slow == fast : return True
+
+        return False
+
+    def detectCycleDict(self, head: Optional[ListNode]) -> bool:
+
+        if head is None : return False
+
+        seenNodes = set()
+
+        temp = head
+
+        while temp :
+
+            if temp in seenNodes : return True
+                
+            else : seenNodes.add(temp)
+
+            temp = temp.next
 
         return False
         
