@@ -8,24 +8,27 @@ class Solution:
 
     def detectCycleDict(self, head: Optional[ListNode]) -> Optional[ListNode]:
 
-        if head is None : return None
-
         seenNodes = set()
 
         temp = head
 
+        # Traversing the LL, the first node that repeats 
+        # is the start of the cycle
+
         while temp :
 
-            if temp in seenNodes : return temp
-                
-            else : seenNodes.add(temp)
+            if temp in seenNodes:
+                return temp
+
+            seenNodes.add(temp)
 
             temp = temp.next
-
+        
         return None
 
     def detectCycleNoDict(self, head: Optional[ListNode]) -> Optional[ListNode]:
 
+        
         return head
 
     def detectCycle(self, head: Optional[ListNode]) -> Optional[ListNode]:
