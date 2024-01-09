@@ -22,13 +22,26 @@ class Solution:
 
  
     def hasCycleDict(self, head: Optional[ListNode]) -> bool:
-        pass
+        
+        seenNodes = set()
+
+        temp = head
+
+        while temp :
+
+            if temp in seenNodes : return True
+
+            seenNodes.add(temp)
+
+            temp = temp.next
+
+        return False
         
     def hasCycle(self, head: Optional[ListNode]) -> bool:
 
-        # return self.hasCycleDict(head)
+        return self.hasCycleDict(head)
 
-        return self.hasCycleFloyd(head)
+        # return self.hasCycleFloyd(head)
 
         
     
