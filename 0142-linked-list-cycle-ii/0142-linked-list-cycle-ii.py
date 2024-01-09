@@ -28,8 +28,23 @@ class Solution:
 
     def detectCycleNoDict(self, head: Optional[ListNode]) -> Optional[ListNode]:
 
-        
-        return head
+        slow = fast = head
+
+        while fast and fast.next:
+
+            slow = slow.next
+
+            fast = fast.next.next
+
+        if fast is None : return fast
+
+        temp = head
+
+        while temp != slow :
+            temp = temp.next
+            slow = slow.next
+
+        return temp
 
     def detectCycle(self, head: Optional[ListNode]) -> Optional[ListNode]:
         
