@@ -28,6 +28,8 @@ class Solution:
 
     def detectCycleNoDict(self, head: Optional[ListNode]) -> Optional[ListNode]:
 
+        if not head or not head.next  : return None
+        
         slow = fast = head
 
         while fast and fast.next:
@@ -36,7 +38,9 @@ class Solution:
 
             fast = fast.next.next
 
-        if fast is None : return fast
+            if slow == fast : break
+
+        if not fast or not fast.next: return None
 
         temp = head
 
@@ -48,6 +52,6 @@ class Solution:
 
     def detectCycle(self, head: Optional[ListNode]) -> Optional[ListNode]:
         
-        return self.detectCycleDict(head)
+        # return self.detectCycleDict(head)
 
         return self.detectCycleNoDict(head)
