@@ -49,3 +49,5 @@ class Solution:
     def detectCycle(self, head: Optional[ListNode]) -> Optional[ListNode]:
         
         return self.detectCycleDict(head)
+
+        return self.detectCycleNoDict(head)
