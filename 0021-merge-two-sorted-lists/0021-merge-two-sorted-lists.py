@@ -6,30 +6,66 @@
 class Solution:
     def mergeTwoLists(self, list1: Optional[ListNode], list2: Optional[ListNode]) -> Optional[ListNode]:
         
-        if list1 == None : return list2
+        
+        if list1 is None : return list2
 
-        if list2 == None : return list1
+        if list2 is None : return list1
+
+        # Two ways
+
+        # 1. With extra space O(n)
+            # create a new list 
+            # traverse the lists
+            # Add elements from both lists to new list
+            # return New List
+
+        # 2. Without extra space
+
+            # Traverse both lists using temp1 and temp2 pointers
+
+            # Update next pointers accordingly
 
         temp1, temp2 = list1, list2
 
-        prehead = ListNode(-1)
+        # retHead = list1 if temp1.val <= temp2.val else list2
 
-        prev = prehead
-        
-        while (temp1 is not None) and (temp2 is not None) :
+        retHead = ListNode(-1)
 
-            if temp1.val <= temp2.val :                
-          
-                prev.next = temp1
+        cur = retHead
+
+        while temp1 and temp2 :
+
+            if temp1.val <= temp2.val :
+                
+                cur.next = temp1
                 temp1 = temp1.next
-            
+                
+
             else :
 
-                prev.next = temp2
+                cur.next = temp2
                 temp2 = temp2.next
+ 
+            cur = cur.next
 
-            prev = prev.next
+        if temp1 is None : cur.next = temp2
+
+        elif temp2 is None : cur.next = temp1
+
+
+        return retHead.next
+
+
+
+        
+
+
+
             
-        prev.next = temp1 if temp1 is not None else temp2
+                
+                   
 
-        return prehead.next
+             
+
+
+            # Return head of merged list
