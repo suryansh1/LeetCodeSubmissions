@@ -6,12 +6,9 @@
 
 class Solution:
     
-    def hasCycleFLoydWarshal(self, head: Optional [ListNode]) -> bool :
-
-        if head is None : return False
+    def hasCycleFloyd(self, head: Optional [ListNode]) -> bool :
 
         slow = fast = head 
-        # fast = head.next
 
         while fast and fast.next :
 
@@ -23,29 +20,15 @@ class Solution:
 
         return False
 
+ 
     def hasCycleDict(self, head: Optional[ListNode]) -> bool:
-
-        if head is None : return False
-
-        seenNodes = set()
-
-        temp = head
-
-        while temp :
-
-            if temp in seenNodes : return True
-                
-            else : seenNodes.add(temp)
-
-            temp = temp.next
-
-        return False
+        pass
         
     def hasCycle(self, head: Optional[ListNode]) -> bool:
 
         # return self.hasCycleDict(head)
 
-        return self.hasCycleFLoydWarshal(head)
+        return self.hasCycleFloyd(head)
 
         
     
