@@ -1,57 +1,54 @@
-class Solution(object):
+class Solution:
 
-    def twoSumBruteForce(self, nums, target):
-        index1 = index2 = 0
-        size = len(nums)
-        
-        for index1 in range(size):
+    def twoSumBruteForce(self, nums: List[int], target: int) -> List[int]:
 
-            for index2 in range(index1+1, size):
+        for i, num1 in enumerate(nums):
 
-                if nums[index1] + nums[index2] == target:
-                    return index1, index2
+            for j, num2 in enumerate(nums[i+1:]):
 
-    def twoSumDictionary(self, nums, target):
-        
+                if num1 + num2 == target: return (i, i+j+1)
+
+    def twoSumHashTable(self, nums: List[int], target: int) -> List[int]:
+
         myDict = {}
 
-        for index in range(len(nums)):
-            
-            myDict[nums[index]] = index
+        for i, num in enumerate(nums) :
+            myDict[num] = i
 
-        for index1 in range(len(nums)):
+        for i, num in enumerate(nums) :
 
-            if (target - nums[index1]) in myDict:
+            if (target - num) in myDict:
 
-                index2 = myDict[target - nums[index1]]
+                if myDict[target - num] != i : 
+                    
+                    return i, myDict[target - num]
+    
+    def twoSumSinglePassHashTable(self, nums: List[int], target: int) -> List[int]:
 
-                if index1 != index2:
-                    return index1, index2
-
-    def twoSumDictOptimized(self, nums, target):
-        
         myDict = {}
 
-        for index1, num in enumerate(nums):
+        for i, num in enumerate(nums):
 
-            if target - num in myDict:
+            if (target - num) in myDict :
 
-                index2 = myDict[target - num]
+                return i, myDict[target - num]
 
-                # if index1 != index2:
-                return index1, index2
+            else : myDict[num] = i
 
-            myDict[num] = index1
-
-
-    def twoSum(self, nums, target):
-        """
-        :type nums: List[int]
-        :type target: int
-        :rtype: List[int]
-        """
+    def twoSum(self, nums: List[int], target: int) -> List[int]:
+        
         # return self.twoSumBruteForce(nums, target)
-        return self.twoSumDictionary(nums, target)
-        # return self.twoSumDictOptimized(nums, target)
-            
-        
+
+        # return self.twoSumHashTable(nums, target)
+
+        # return self.twoSumSinglePassHashTable(nums, target)
+
+        myDict = {}
+
+        for i,num in enumerate(nums) :
+
+            if target - num in myDict :
+
+                return i, myDict[target - num]
+
+            else : myDict[num] = i
