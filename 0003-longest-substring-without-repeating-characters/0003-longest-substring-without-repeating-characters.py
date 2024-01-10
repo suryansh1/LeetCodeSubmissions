@@ -63,7 +63,7 @@ class Solution:
         
     def lengthOfLongestSubstring(self, s: str) -> int:
 
-        return self.lengthOfLongestSubstringDict(s)
+        # return self.lengthOfLongestSubstringDict(s)
 
         if s == "" : return 0
 
@@ -71,13 +71,15 @@ class Solution:
 
         substring = set()        
 
-        left, right = 0, 1
+        left, right = 0, 0
 
         max_length = 1
 
         substring.add(s[left])
 
         while right < len(s) - 1:
+
+            right += 1
 
             if s[right] in substring :
 
@@ -88,15 +90,12 @@ class Solution:
                     left += 1
 
                 left += 1
-                right += 1
 
             else :
 
                 substring.add(s[right])                
 
-                max_length = max(max_length, right - left + 1)
-
-                right += 1
+                max_length = max(max_length, len(substring))
 
         return max_length
 
