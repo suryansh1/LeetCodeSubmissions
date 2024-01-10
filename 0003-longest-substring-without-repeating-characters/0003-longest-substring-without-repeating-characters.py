@@ -65,4 +65,44 @@ class Solution:
 
         return self.lengthOfLongestSubstringDict(s)
 
+        if s == "" : return 0
+
+        if len(s) == 1: return 1
+
+        substring = set()        
+
+        left, right = 0, 1
+
+        max_length = 1
+
+        substring.add(s[left])
+
+        while right < len(s) - 1:
+
+            if s[right] in substring :
+
+                while s[left] != s[right] : 
+                    
+                    substring.remove(s[left])
+
+                    left += 1
+
+                left += 1
+                right += 1
+
+            else :
+
+                substring.add(s[right])                
+
+                max_length = max(max_length, right - left + 1)
+
+                right += 1
+
+        return max_length
+
+
+
+
+
+
         
