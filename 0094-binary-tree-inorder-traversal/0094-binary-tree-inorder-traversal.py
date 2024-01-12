@@ -23,6 +23,27 @@ class Solution:
 
         answer_list = []
         
-        self.inorderTraversalRecursive(root, answer_list)
+        # self.inorderTraversalRecursive(root, answer_list)
+
+        # return answer_list
+
+        stack = deque()
+
+        # stack.append(root.val)
+
+        while stack or root :
+            
+            while root:
+                stack.append(root)
+                root = root.left
+
+            processed_node = stack.pop()
+
+            answer_list.append(processed_node.val)
+
+            root = processed_node.right
+
 
         return answer_list
+
+
