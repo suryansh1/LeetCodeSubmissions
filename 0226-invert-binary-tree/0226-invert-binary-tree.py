@@ -9,11 +9,11 @@ class Solution:
         
         if root is None or (root.left is None and root.right is None) : return root
                 
-        root.left, root.right = root.right, root.left
+        leftSubtree = self.invertTree(root.left)
 
-        self.invertTree(root.left)
+        rightSubtree = self.invertTree(root.right)
 
-        self.invertTree(root.right)
+        root.left, root.right = rightSubtree, leftSubtree
 
         return root
 
