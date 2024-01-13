@@ -31,17 +31,16 @@ class Solution:
             if pNode is None and qNode is None : 
                 continue
 
-            if pNode.val == qNode.val : 
+            if pNode.val != qNode.val : return False
 
-                queue.append(pNode.left)
+            queue.append(pNode.left)
 
-                queue.append(qNode.left)
+            queue.append(qNode.left)
 
-                queue.append(pNode.right)
+            queue.append(pNode.right)
 
-                queue.append(qNode.right)
+            queue.append(qNode.right)
 
-            else : return False
 
         return True
 
@@ -83,9 +82,9 @@ class Solution:
 
     def isSameTree(self, p: Optional[TreeNode], q: Optional[TreeNode]) -> bool:
         
-        return self.isSameTreeDFS(p,q)
+        # return self.isSameTreeDFS(p,q)
         
-        # return self.isSameTreeBFS(p,q)
+        return self.isSameTreeBFS(p,q)
 
         # if p is None and q is None : return True
 
