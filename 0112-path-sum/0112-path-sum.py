@@ -7,6 +7,10 @@
 class Solution:
 
     def computePathSum(self, root: Optional[TreeNode], curSum: int, targetSum: int) -> bool:
+        '''This works if path from root to any node sums up to targetSum, not just leaf node like the question asked'''
+
+        # The problem doesn't consider [1,2] as reaching sum 1, as root.val==1
+        # but path from root to leaf == 3
 
         if root is None : return False
 
