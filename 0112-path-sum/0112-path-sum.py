@@ -17,16 +17,49 @@ class Solution:
         if curSum + root.val == targetSum : return True
 
         return self.computePathSum(root.left, curSum + root.val, targetSum) or self.computePathSum(root.right, curSum + root.val, targetSum)
-    
-    def hasPathSum(self, root: Optional[TreeNode], targetSum: int) -> bool:
+
+    def hasPathSumDFS(self, root: Optional[TreeNode], targetSum: int) -> bool:
 
         if root is None : return False
 
-        targetSum -= root.val
+        stack = deque()
 
-        if not root.left and not root.right and targetSum == 0 : return True
+        stack.append([root, targetSum])
 
-        return self.hasPathSum(root.left, targetSum) or self.hasPathSum(root.right, targetSum)
+        while stack:
 
-        # return self.computePathSum(root, 0, targetSum)
+            curNode, curSum = stack.pop()
+
+            # print(curSum, curNode.val)
+            curSum -= curNode.val
+
+            if not curNode.left and not curNode.right :
+                
+                if curSum == 0 : return True
+
+            if curNode.left : 
+
+                stack.append([curNode.left, curSum])
+
+            if curNode.right : 
+                
+                stack.append([curNode.right, curSum])
+
+        return False
+
+            
+    
+    def hasPathSum(self, root: Optional[TreeNode], targetSum: int) -> bool:
+
+
+        return self.hasPathSumDFS(root, targetSum)
+        # if root is None : return False
+
+        # targetSum -= root.val
+
+        # if not root.left and not root.right and targetSum == 0 : return True
+
+        # return self.hasPathSum(root.left, targetSum) or self.hasPathSum(root.right, targetSum)
+
+        # # return self.computePathSum(root, 0, targetSum)
         
