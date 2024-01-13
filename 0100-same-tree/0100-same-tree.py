@@ -45,11 +45,47 @@ class Solution:
 
         return True
 
+    def isSameTreeDFS(self, p: Optional[TreeNode], q: Optional[TreeNode]) -> bool:
+
+
+        if not p and not q : return True
+
+        if (p and not q) or (q and not p) : return False
+
+        stack = deque()
+
+        stack.append(p)
+
+        stack.append(q)
+
+        while stack :
+
+            qNode = stack.pop()
+
+            pNode = stack.pop()
+
+            if pNode and not qNode or qNode and not pNode : return False
+
+            if not pNode and not qNode : continue
+
+            if pNode.val != qNode.val : return False
+
+            stack.append(pNode.left)
+
+            stack.append(qNode.left)
+
+            stack.append(pNode.right)
+
+            stack.append(qNode.right)
+
+        return True
 
 
     def isSameTree(self, p: Optional[TreeNode], q: Optional[TreeNode]) -> bool:
         
-        return self.isSameTreeBFS(p,q)
+        return self.isSameTreeDFS(p,q)
+        
+        # return self.isSameTreeBFS(p,q)
 
         # if p is None and q is None : return True
 
