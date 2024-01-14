@@ -12,10 +12,12 @@ class Solution:
 
             if isBadVersion(mid) : 
                 
-                if not isBadVersion(mid - 1) : return mid
-                
+                # if not isBadVersion(mid - 1) : return mid
+
                 high = mid - 1
 
             else : 
                 
                 low = mid + 1
+
+        return low
