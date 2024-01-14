@@ -26,28 +26,13 @@ class TimeMap:
 
         # timestamps = list(self.data[key].keys())
 
-        # index = bisect.bisect_left(timestamps, timestamp)
+        index = bisect.bisect_right(self.data[key].keys(), timestamp)
 
-        index = self.data[key].bisect_right(timestamp)
+        print(index, self.data[key])
 
-        # print(index-1, self.data[key])
+        if index == 0 :
 
-        if index == 0 : return ""
-
-            # if timestamp < timestamps[0] : return ""
-        
-        # if index == len(timestamps) : 
-            
-        #     index -= 1
-
-        # if timestamp < timestamps[index] :
-
-        #     index -= 1
-
-
-        # print(index, timestamp, timestamps, self.data[key])
-
-        # return self.data[key][timestamps[index]]
+            return ""
 
         return self.data[key].peekitem(index-1)[1]
 
