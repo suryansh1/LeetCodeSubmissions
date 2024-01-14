@@ -30,7 +30,7 @@ class TimeMap:
 
         index = self.data[key].bisect_right(timestamp)
 
-        print(index-1, self.data[key])
+        # print(index-1, self.data[key])
 
         if index == 0 : return ""
 
