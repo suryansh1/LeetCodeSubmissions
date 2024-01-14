@@ -28,7 +28,7 @@ class TimeMap:
 
         index = bisect.bisect_right(self.data[key].keys(), timestamp)
 
-        print(index, self.data[key])
+        # print(index, self.data[key])
 
         if index == 0 :
 
