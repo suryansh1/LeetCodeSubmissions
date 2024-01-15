@@ -14,42 +14,42 @@ class Solution:
 
         while queue :
 
-            cur = queue.popleft()
+            row, col = queue.popleft()
 
-            visited.add((cur[0], cur[1]))
+            visited.add((row, col))
 
 
-            # cur[0] + 1, cur[1]
-            # cur[0] - 1, cur[1]
+            # row + 1, col
+            # row - 1, col
 
-            # cur[0], cur[1] + 1
-            # cur[0], cur[1] - 1
+            # row, col + 1
+            # row, col - 1
 
-            if cur[0] + 1 < m and (cur[0]+1, cur[1]) not in visited:
+            if row + 1 < m and (row+1, col) not in visited:
             
-                if image[cur[0]+1][cur[1]] == image[cur[0]][cur[1]] :
+                if image[row+1][col] == image[row][col] :
 
-                    queue.append((cur[0]+1, cur[1]))
+                    queue.append((row+1, col))
 
-            if cur[0] - 1 >= 0 and (cur[0]-1, cur[1]) not in visited:
+            if row - 1 >= 0 and (row-1, col) not in visited:
             
-                if image[cur[0]-1][cur[1]] == image[cur[0]][cur[1]] :
+                if image[row-1][col] == image[row][col] :
 
-                    queue.append((cur[0]-1, cur[1]))
+                    queue.append((row-1, col))
             
-            if cur[1] + 1 < n and (cur[0], cur[1]+1) not in visited:
+            if col + 1 < n and (row, col+1) not in visited:
             
-                if image[cur[0]][cur[1] + 1] == image[cur[0]][cur[1]] :
+                if image[row][col + 1] == image[row][col] :
 
-                    queue.append((cur[0], cur[1] + 1))
+                    queue.append((row, col + 1))
             
-            if cur[1] - 1 >= 0 and (cur[0], cur[1] - 1) not in visited:
+            if col - 1 >= 0 and (row, col - 1) not in visited:
             
-                if image[cur[0]][cur[1] - 1] == image[cur[0]][cur[1]] :
+                if image[row][col - 1] == image[row][col] :
 
-                    queue.append((cur[0], cur[1] - 1))
+                    queue.append((row, col - 1))
 
-            image[cur[0]][cur[1]] = color
+            image[row][col] = color
 
         
         return image
