@@ -25,11 +25,13 @@ class Solution:
         heap = []
         for num, freq in counter.items():
 
-            heapq.heappush(heap, (freq, num))
+            heapq.heappush(heap, (-freq, num))
 
-            if len(heap) > k:
-                heapq.heappop(heap)
+            # if len(heap) > k:
+                # heapq.heappop(heap)
 
-         # The heap now contains the k most frequent elements
-        result = [element for _, element in heap]
+         # The heap is a maxheap 
+
+        result = [heapq.heappop(heap)[1] for i in range(k)]
+        # result = [element for _, element in heap]
         return result
