@@ -44,11 +44,11 @@ class Solution:
 
                     while queue : 
 
-                        p, q = queue.popleft()
+                        i, j = queue.popleft()
 
                         for dx, dy in directions : 
 
-                            x, y = p + dx, q + dy
+                            x, y = i + dx, j + dy
 
                             # if self.valid(x,y, m, n) and  (x,y) not in visited and grid[x][y] == 1 :
 
