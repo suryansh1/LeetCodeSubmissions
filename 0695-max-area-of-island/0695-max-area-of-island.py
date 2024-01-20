@@ -61,9 +61,7 @@ class Solution:
                                         
         return max_area 
 
-    def maxAreaOfIsland(self, grid: List[List[int]]) -> int:
-
-        return self.maxAreaOfIslandBFSvisitedSet(grid)
+    def maxAreaOfIslandNoSet(self, grid: List[List[int]]) -> int:
 
         island_count = 0
         max_area = 0
@@ -122,3 +120,9 @@ class Solution:
                 max_area = max(area, max_area)                         
                                         
         return max_area 
+
+    def maxAreaOfIsland(self, grid: List[List[int]]) -> int:
+
+        # return self.maxAreaOfIslandBFSvisitedSet(grid)
+
+        return self.maxAreaOfIslandNoSet(grid)
