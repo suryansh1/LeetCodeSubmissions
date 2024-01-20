@@ -48,5 +48,5 @@ class Solution:
     def twoSum(self, numbers: List[int], target: int) -> List[int]:
 
             # return self.twoSum2pointers(numbers, target)
-            # return self.twoSumBinarySearch(numbers, target)
-            return self.twoSumDict(numbers, target)
+            return self.twoSumBinarySearch(numbers, target)
+            # return self.twoSumDict(numbers, target)
