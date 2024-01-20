@@ -40,13 +40,15 @@ class Solution:
 
             index2 = bisect.bisect_left(numbers[i+1:], x)
 
-            if index2 + i + 1 == size : index2 -= 1
+            if index2 + i + 1 >= size : 
+                index2 -= 1
 
-            if numbers[index2+i+1] == x : return i+1, i+index2+2
+            if numbers[index2+i+1] == x : 
+                return i+1, i+index2+2
 
 
     def twoSum(self, numbers: List[int], target: int) -> List[int]:
 
-            # return self.twoSum2pointers(numbers, target)
-            return self.twoSumBinarySearch(numbers, target)
+            return self.twoSum2pointers(numbers, target)
+            # return self.twoSumBinarySearch(numbers, target)
             # return self.twoSumDict(numbers, target)
