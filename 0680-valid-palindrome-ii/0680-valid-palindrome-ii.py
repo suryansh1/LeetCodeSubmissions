@@ -1,4 +1,10 @@
 class Solution:
+
+    def check_palindrome(self, s:str) -> str:
+
+
+        return s == s[::-1]
+
     def validPalindrome(self, s: str) -> bool:
         
         # counter = Counter(s)
@@ -16,11 +22,7 @@ class Solution:
 
                 continue
 
-            elif s[left+1:right+1] == s[left+1:right+1][::-1] :
-
-                return True
-
-            elif s[left:right] == s[left:right][::-1] :
+            elif self.check_palindrome(s[left+1:right+1]) or self.check_palindrome(s[left:right]) :
 
                 return True
 
