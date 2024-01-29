@@ -2,7 +2,6 @@ class Solution:
 
     def check_palindrome(self, s:str) -> str:
 
-
         return s == s[::-1]
 
     def validPalindrome(self, s: str) -> bool:
@@ -22,11 +21,7 @@ class Solution:
 
                 continue
 
-            elif self.check_palindrome(s[left+1:right+1]) or self.check_palindrome(s[left:right]) :
-
-                return True
-
-            return False
+            else : return self.check_palindrome(s[left+1:right+1]) or self.check_palindrome(s[left:right]) 
         
         
         return True
