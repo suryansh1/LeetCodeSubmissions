@@ -10,30 +10,30 @@ class MovingAverage:
 
         self.curAvg = 0
 
-
         # self.window = []        
 
     def next(self, val: int) -> float:
         
-        if len(self.window) == self.window_size:
-            diff = val - self.window.popleft()            
+        # if len(self.window) == self.window_size:
+        #     diff = val - self.window.popleft()            
 
         self.window.append(val)
 
         if len(self.window) <= self.window_size :
 
-            self.curSum = sum(self.window)
+            self.curSum += val
             self.curAvg = self.curSum/len(self.window)
 
-            return sum(self.window)/len(self.window)
-
+            return self.curAvg
+            # return sum(self.window)/len(self.window)
         
+        diff = val - self.window.popleft() 
         self.curSum += diff
         self.curAvg += diff/self.window_size
 
         return self.curAvg
 
-        return sum(self.window)/self.window_size
+        # return sum(self.window)/self.window_size
 
 
 
