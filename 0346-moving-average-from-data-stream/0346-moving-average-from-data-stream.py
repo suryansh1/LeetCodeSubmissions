@@ -22,7 +22,7 @@ class MovingAverage:
             return self.curAvg
         
         diff = val - self.window.popleft() 
-        # self.curSum += diff
+        self.curSum += diff
         self.curAvg += diff/self.window_size
 
         return self.curAvg
