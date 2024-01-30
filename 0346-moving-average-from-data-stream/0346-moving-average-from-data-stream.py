@@ -3,11 +3,8 @@ class MovingAverage:
     def __init__(self, size: int):
 
         self.window_size = size
-
         self.window = deque()
-
         self.curSum = 0
-
         self.curAvg = 0
 
     def next(self, val: int) -> float:            
@@ -26,9 +23,6 @@ class MovingAverage:
         self.curAvg += diff/self.window_size
 
         return self.curAvg
-
-
-
 
 # Your MovingAverage object will be instantiated and called as such:
 # obj = MovingAverage(size)
