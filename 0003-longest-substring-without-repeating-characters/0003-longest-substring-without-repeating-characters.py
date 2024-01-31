@@ -1,107 +1,59 @@
 class Solution:
-    
-    def lengthOfLongestSubstringSet(self, s: str) -> int:
-
-        if s == "" : return 0
-
-        max_length = 1
-
-        left, right = 0, 0
-
-        substring = set({s[0]})
-
-        while right < len(s)-1:
-
-            # Expanding window from right
-            right += 1
-
-            # If new character is not in substring
-            # Add to substring and increase max_length
-            if s[right] not in substring :
-                 
-                substring.add(s[right])
-                max_length = max(max_length, right - left + 1)
-
-            # If new character is present in substring
-            # remove leftmost character and shorten substring
-            # until we have an all unique substring including right
-            else :
-
-                while s[left] != s[right] : 
-                    
-                    substring.remove(s[left])
-                    left += 1
-
-                left += 1
-
-        return max_length
-
-    def lengthOfLongestSubstringDict(self, s: str) -> int:
-
-        if s == "" : return 0
-
-        max_length = 0
-
-        left, right = 0, 0
-
-        # Dict to store index of left
-        myDict = {}
-
-
-        for right in range(len(s)):
-
-            if s[right] in myDict :
-                 
-                left = max(myDict[s[right]], left)
-                
-
-            max_length = max(max_length, right - left + 1)
-            
-            myDict[s[right]] = right + 1
-            
-        return max_length
-        
     def lengthOfLongestSubstring(self, s: str) -> int:
+        
+        if len(s) in [0,1] : return len(s)
 
-        # return self.lengthOfLongestSubstringDict(s)
+        l, r = 0,1
 
-        if s == "" : return 0
+        # Sliding window
+        
 
-        if len(s) == 1: return 1
-
-        substring = set()        
-
-        left, right = 0, 0
+        # initialize a window set
+        window = set(s[l])
 
         max_length = 1
 
-        substring.add(s[left])
+        # Scan each character
+        while r < len(s) :        
 
-        while right < len(s) - 1:
+            # Check if new character is in window 
+            if s[r] not in window :
+                
+                #add to window set
+                window.add(s[r])          
 
-            right += 1
+                # update max_length
+                max_length = max(max_length, r-l+1)
 
-            if s[right] in substring :
+                r += 1                  
 
-                while s[left] != s[right] : 
+            else:
+                # Left increments until 
+                # s[r] is removed from window
+
+                while s[l] != s[r]:
+
+                    window.remove(s[l])
+                    l += 1
+
+                l += 1
+
+                r += 1
+
+
+                # right increments until 
+                # we find the first character not in window
+
+                # while r < len(s) and s[r] in window:
                     
-                    substring.remove(s[left])
+                    # r += 1
 
-                    left += 1
+                # if r == len(s) : break
+                
+                # left = index of the first character not in window   
+                # l = r - 1
+                # r = l + 1
 
-                left += 1
-
-            else :
-
-                substring.add(s[right])                
-
-                max_length = max(max_length, len(substring))
-
-        return max_length
-
-
-
-
-
-
+                # window = set(s[l])                        
         
+        return max_length
