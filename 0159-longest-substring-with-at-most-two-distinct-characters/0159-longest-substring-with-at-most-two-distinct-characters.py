@@ -5,7 +5,6 @@ class Solution:
 
         max_length = 0
 
-        # window = set()
         counter = Counter()
 
         for r in range(len(s)):
