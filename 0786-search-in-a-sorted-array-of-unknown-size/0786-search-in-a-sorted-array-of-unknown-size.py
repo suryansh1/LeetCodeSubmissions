@@ -30,10 +30,6 @@ class Solution:
 
             upperBound = reader.get(i)
 
-            if upperBound == pow(2, 31) - 1 :
-
-                break
-
         low, high = i//2, i
 
         while(low <= high) :
