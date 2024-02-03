@@ -24,15 +24,15 @@ class Solution:
 
         upperBound = reader.get(i)
 
-        while (target > upperBound):
+        while (upperBound < target):
             
             i *= 2
 
             upperBound = reader.get(i)
 
-            # if upperBound == pow(2, 31) - 1 :
+            if upperBound == pow(2, 31) - 1 :
 
-            #     break
+                break
 
         low, high = i//2, i
 
