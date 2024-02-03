@@ -32,15 +32,6 @@ class Solution:
 
                 break
 
-        # handle cases where target is less than lowest val 
-
-        if i == 0 :
-            
-            if reader.get(0) == target : return 0
-            else : return -1
-
-        # and target > highest val
-
         low, high = 0, i
 
         while(low <= high) :
