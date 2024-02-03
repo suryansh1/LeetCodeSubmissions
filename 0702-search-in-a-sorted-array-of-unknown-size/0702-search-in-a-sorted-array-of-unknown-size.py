@@ -34,7 +34,7 @@ class Solution:
 
                 break
 
-        low, high = 0, i
+        low, high = i//2, i
 
         while(low <= high) :
 
