@@ -18,6 +18,8 @@ class Solution:
 
         # else i += 1
 
+        if reader.get(0) == target : return 0
+
         i = 1
 
         upperBound = reader.get(i)
