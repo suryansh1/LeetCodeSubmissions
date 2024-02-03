@@ -41,7 +41,7 @@ class Solution:
 
         # and target > highest val
 
-        low, high = 0, pow(2,i)
+        low, high = 0, i
 
         while(low <= high) :
 
