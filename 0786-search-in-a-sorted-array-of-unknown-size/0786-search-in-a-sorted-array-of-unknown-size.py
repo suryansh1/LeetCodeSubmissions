@@ -10,14 +10,6 @@ class Solution:
         
         # Start from index 0
 
-        # expand search window 2x
-        # if target < ArrayReader.get(i)
-
-            # target is between index 2^i-1 and 2 ^ i
-            # binary search with low = 2^i-1 and high = 2^i
-
-        # else i += 1
-
         if reader.get(0) == target : return 0
 
         i = 1
