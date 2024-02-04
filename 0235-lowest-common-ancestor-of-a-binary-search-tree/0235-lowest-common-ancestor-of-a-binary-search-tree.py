@@ -10,7 +10,7 @@ class Solution:
         
         if p.val <= root.val <= q.val or q.val <=root.val <= p.val : return root
 
-        if p.val < q.val < root.val or q.val < p.val < root.val :
+        if p.val < root.val > q.val :
             return self.lowestCommonAncestor(root.left, p, q)
 
         return self.lowestCommonAncestor(root.right, p, q)
